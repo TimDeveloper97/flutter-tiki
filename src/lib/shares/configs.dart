@@ -7,5 +7,6 @@ class MConfigs {
   static const EdgeInsets paddingPage = EdgeInsets.all(20);
   static const EdgeInsets paddingHeader = EdgeInsets.only(left: 20, top: 5, right: 20, bottom: 5);
   static const String nameProject = "Tiki";
-  static const double heightHeader = 70;
+  static const double heightHeader = 180;
+  static const double heightHeaderLogo = 70;
 }

@@ -3,6 +3,7 @@ import 'package:androidstudio/shares/configs.dart';
 import 'package:flutter/material.dart';
 
 late BuildContext _context;
+
 class HeaderView extends StatefulWidget {
   const HeaderView({Key? key}) : super(key: key);
 
@@ -14,70 +15,84 @@ class _headerView extends State<HeaderView> {
   @override
   Widget build(BuildContext context) {
     _context = context;
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Column(
       children: [
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width * 0.15,
+        SizedBox(
+          height: MConfigs.heightHeaderLogo,
           child: Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'FREESHIP',
-                style: Theme.of(context).textTheme.headline1,
+              Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.15,
+                child: Row(
+                  children: [
+                    Text(
+                      'FREESHIP',
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                    const Text(
+                      '+',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    )
+                  ],
+                ),
               ),
-              const Text(
-                '+',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.amber,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
+              Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.6,
+                child: Image.asset(
+                  'assets/images/tiki.png',
+                  width: 35,
+                  height: 35,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.15,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 30),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(Icons.notifications_none, color: Colors.white, size: 30)
+                  ],
                 ),
               )
             ],
           ),
         ),
-        Container(
-          alignment: Alignment.center,
-          width: MediaQuery.of(context).size.width * 0.6,
-          child: Image.asset(
-            'assets/images/tiki.png',
-            width: 35,
-            height: 35,
-            fit: BoxFit.contain,
-          ),
-        ),
-        Container(
-          width: MediaQuery.of(context).size.width * 0.15,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 30),
-              SizedBox(width: 10,),
-              Icon(Icons.notifications_none, color: Colors.white, size: 30)
-            ],
-          ),
-        )
+        searchBox(),
+        SliverAppBar()
       ],
     );
   }
 }
 
-Widget searchBox(){
+Widget searchBox() {
   return AppBar(
+    backgroundColor: Colors.white,
+
     actions: [
       IconButton(
+        splashRadius: 25,
         onPressed: () {
           // method to show the search bar
           showSearch(
               context: _context,
               // delegate to customize the search bar
-              delegate: CustomSearchDelegate()
-          );
+              delegate: CustomSearchDelegate());
         },
-        icon: const Icon(Icons.search),
+        icon: const Icon(Icons.search, color: MColors.app),
       )
     ],
   );
@@ -85,16 +100,7 @@ Widget searchBox(){
 
 class CustomSearchDelegate extends SearchDelegate {
 // Demo list to show querying
-  List<String> searchTerms = [
-    "Apple",
-    "Banana",
-    "Mango",
-    "Pear",
-    "Watermelons",
-    "Blueberries",
-    "Pineapples",
-    "Strawberries"
-  ];
+  List<String> searchTerms = ["Apple", "Banana", "Mango", "Pear", "Watermelons", "Blueberries", "Pineapples", "Strawberries"];
 
 // first overwrite to
 // clear the search text
