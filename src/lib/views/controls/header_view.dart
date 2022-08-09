@@ -15,64 +15,31 @@ class _headerView extends State<HeaderView> {
   @override
   Widget build(BuildContext context) {
     _context = context;
-    return Column(
+    return Row(
       children: [
-        SizedBox(
-          height: MConfigs.heightHeaderLogo,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.15,
-                child: Row(
-                  children: [
-                    Text(
-                      'FREESHIP',
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                    const Text(
-                      '+',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.amber,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.6,
-                child: Image.asset(
-                  'assets/images/tiki.png',
-                  width: 35,
-                  height: 35,
-                  fit: BoxFit.contain,
-                ),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.15,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 30),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Icon(Icons.notifications_none, color: Colors.white, size: 30)
-                  ],
-                ),
-              )
-            ],
+        Text(
+          'FREESHIP',
+          style: Theme.of(context).textTheme.headline1,
+        ),
+        const Text(
+          '+',
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.amber,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.italic,
           ),
         ),
-        searchBox(),
-        SliverAppBar()
+        Container(
+          alignment: Alignment.center,
+          width: MediaQuery.of(context).size.width * 0.62,
+          child: Image.asset(
+            'assets/images/tiki.png',
+            width: 35,
+            height: 35,
+            fit: BoxFit.contain,
+          ),
+        ),
       ],
     );
   }
