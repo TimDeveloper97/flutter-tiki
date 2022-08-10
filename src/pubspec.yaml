@@ -60,6 +60,12 @@ flutter:
   # To add helpers to your application, add an helpers section, like this:
   assets:
     - assets/images/tiki.png
+    - assets/images/banner1.png
+    - assets/images/banner2.jpg
+    - assets/images/banner3.png
+    - assets/images/banner4.jpg
+    - assets/images/banner5.png
+    - assets/images/banner6.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

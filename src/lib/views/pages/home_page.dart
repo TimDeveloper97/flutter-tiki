@@ -1,8 +1,9 @@
 import 'package:androidstudio/shares/colors.dart';
 import 'package:androidstudio/shares/configs.dart';
 import 'package:androidstudio/views/controls/header_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../controls/banner_view.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -66,7 +67,7 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     swidth = width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: MColors.app,
+      backgroundColor: MColors.appBackground,
       body: CustomScrollView(
         controller: _controller,
         slivers: [
@@ -91,7 +92,7 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
                       ),
                       textAlign: TextAlign.left,
                       decoration: InputDecoration(
-                        hintText: 'Search for something',
+                        hintText: MConfigs.homeSearch,
                         prefixIcon: Icon(Icons.search),
                       )),
                 ),
@@ -101,18 +102,9 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              const SizedBox(
-                height: 400,
-                child: Center(
-                  child: Text(
-                    'This is an awesome shopping platform',
-                  ),
-                ),
-              ),
-              Container(
-                height: 1000,
-                color: Colors.pink,
-              ),
+              banner(),
+              dealHost(),
+              category(),
             ]),
           ),
         ],
@@ -151,15 +143,12 @@ List<Widget> actions(Animation<double> _fadeInFadeOut) {
   ];
 }
 
-Widget body() {
+Widget banner() => BannerView(images: [],);
+
+Widget dealHost(){
   return Container();
 }
 
-Widget footer() {
-  return Container(
-    padding: const EdgeInsets.all(8.0),
-    color: Colors.blue,
-    alignment: Alignment.center,
-    child: Text("Footer"),
-  );
+Widget category(){
+  return Container();
 }
