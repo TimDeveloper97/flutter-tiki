@@ -1,5 +1,6 @@
 import 'package:androidstudio/shares/colors.dart';
 import 'package:androidstudio/shares/configs.dart';
+import 'package:androidstudio/views/controls/deal_host_view.dart';
 import 'package:androidstudio/views/controls/header_view.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
   static const int offset = 28;
   static const int sizeAction = 100;
 
-  late double width, swidth;
+  late double width, sWidth;
   late bool isHideAction = true;
   late ScrollController _controller;
   late AnimationController animation;
@@ -38,16 +39,15 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
     print('offset: ${_controller.offset}');
     var point = _controller.position.minScrollExtent + offset;
 
-    if(_controller.offset >= point) {
+    if (_controller.offset >= point) {
       animation.value = 1;
     }
 
-    if(_controller.offset > 0 && _controller.offset < offset){
+    if (_controller.offset > 0 && _controller.offset < offset) {
       animation.value = 1.0 * (point - _controller.offset) / point;
-      width = swidth - animation.value * sizeAction;
+      width = sWidth - animation.value * sizeAction;
       print('${width}');
-    }
-    else if(_controller.offset > offset && _controller.offset < offset * 2){
+    } else if (_controller.offset > offset && _controller.offset < offset * 2) {
       animation.value = 1.0 * (_controller.offset - point) / point;
     }
 
@@ -65,7 +65,7 @@ class _homePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    swidth = width = MediaQuery.of(context).size.width;
+    sWidth = width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: MColors.appBackground,
       body: CustomScrollView(
@@ -143,12 +143,26 @@ List<Widget> actions(Animation<double> _fadeInFadeOut) {
   ];
 }
 
-Widget banner() => BannerView(images: [],);
+Widget banner() => Container(
+  child: const BannerView(
+    images: [
+      "assets/images/banner1.png",
+      "assets/images/banner2.jpg",
+      "assets/images/banner3.png",
+      "assets/images/banner4.jpg",
+      "assets/images/banner5.png",
+      "assets/images/banner6.jpg",
+      "assets/images/banner7.jpg",
+      "assets/images/banner8.jpg",
+      "assets/images/banner9.jpeg",
+      "assets/images/banner10.png",
+    ],
+  ),
+  margin: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+);
 
-Widget dealHost(){
-  return Container();
-}
+Widget dealHost() => DealHostView();
 
-Widget category(){
+Widget category() {
   return Container();
 }

@@ -9,5 +9,6 @@ class MConfigs {
   static const String nameProject = "Tiki - Mua hàng online giá tốt, hàng chuẩn, ship nhanh";
   static const String homeSearch = "Tìm sản phẩm, danh mục hay thương hiệu mong muốn ...";
   static const double heightHeader = 150;
+  static const double heightDealHot = 270;
   static const double heightHeaderLogo = 70;
 }
