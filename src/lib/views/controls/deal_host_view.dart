@@ -111,8 +111,7 @@ class _dealHostView extends State<DealHostView> {
         Product(990000, 49, 'assets/images/image7.png'),
         Product(870000, 37, 'assets/images/image8.jpg'),
         Product(140000, 51, 'assets/images/image9.jpg'),
-        Product(321000, 47, 'assets/images/image10.png'
-            ''),
+        Product(321000, 47, 'assets/images/image10.png'),
       ]),
     );
   }

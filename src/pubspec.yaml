@@ -80,7 +80,33 @@ flutter:
     - assets/images/image7.png
     - assets/images/image8.jpg
     - assets/images/image9.jpg
-    - assets/images/image10.png
+    - assets/images/accessory.png
+    - assets/images/backpack.png
+    - assets/images/book.png
+    - assets/images/cabinet.png
+    - assets/images/cabinet1.png
+    - assets/images/englishbook.png
+    - assets/images/faceclean.png
+    - assets/images/lotion.png
+    - assets/images/manga.png
+    - assets/images/ngon.png
+    - assets/images/novel.png
+    - assets/images/other.png
+    - assets/images/pants.png
+    - assets/images/shoeman.png
+    - assets/images/shortbook.png
+    - assets/images/smartphone.png
+    - assets/images/story.png
+    - assets/images/sunscreen.png
+    - assets/images/table.png
+    - assets/images/water.png
+    - assets/images/foryou.png
+    - assets/images/fire.png
+    - assets/images/heart.png
+    - assets/images/sale.png
+    - assets/images/cheap.png
+    - assets/images/clother.png
+    - assets/images/new.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

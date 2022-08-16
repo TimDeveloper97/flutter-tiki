@@ -8,50 +8,48 @@ import '../../shares/configs.dart';
 
 final oCcy = NumberFormat("#,##0 ₫", "en_US");
 
-class HorizontalProduct extends StatefulWidget {
+class VerticalProduct extends StatefulWidget {
   final List<Product> products;
 
-  const HorizontalProduct({Key? key, required this.products}) : super(key: key);
+  const VerticalProduct({Key? key, required this.products}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _horizontalProduct();
+  State<StatefulWidget> createState() => _verticalProduct();
 }
-class _horizontalProduct extends State<HorizontalProduct> {
 
+class _verticalProduct extends State<VerticalProduct> {
   @override
   void initState() {}
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(padding: const EdgeInsets.only(left: 0), child: SizedBox(
-          height: MConfigs.heightDealHot - 80,
-          child: ListView.builder(
-            itemCount: widget.products.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final item = widget.products[index];
-              return Card(
-                margin: const EdgeInsets.all(2),
-                elevation: 0,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Stack(
-                  fit: StackFit.loose,
-                  children: [
-                    Container(color: Colors.white),
-                    cardItem(item),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),)
-      ],
+    return SizedBox(
+      width: double.infinity,
+      height: 600,
+      child: GridView.builder(
+        itemCount: widget.products.length,
+        shrinkWrap: true,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.4),
+        ),
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            margin: const EdgeInsets.all(2),
+            elevation: 0,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: Stack(
+              fit: StackFit.loose,
+              children: [
+                Container(color: Colors.white),
+                cardItem(widget.products[index]),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
