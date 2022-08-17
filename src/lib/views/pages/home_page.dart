@@ -5,7 +5,6 @@ import 'package:androidstudio/views/controls/deal_host_view.dart';
 import 'package:androidstudio/views/controls/header_view.dart';
 import 'package:androidstudio/views/controls/horizontal_category_view.dart';
 import 'package:androidstudio/views/controls/vertical_product_view.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/product.dart';
@@ -170,68 +169,6 @@ Widget banner() => Container(
 
 Widget dealHost() => DealHostView();
 
-Widget suggest() {
-  return Container(
-    width: double.infinity,
-    height: 180,
-    margin: const EdgeInsets.fromLTRB(5, 0, 5, 5),
-    child: Card(
-      child: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
-            alignment: Alignment.centerLeft,
-            child: const Text(
-              'Danh Mục Nổi Bật',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: HorizontalCategory(category: [
-              Category('Dành cho bạn', 'assets/images/foryou.png'),
-              Category('Đi chợ Siêu Sale', 'assets/images/sale.png'),
-              Category('Deal Siêu Hot', 'assets/images/fire.png'),
-              Category('Rẻ vô đối', 'assets/images/cheap.png'),
-              Category('Hàng mới', 'assets/images/new.png'),
-              Category('Xu hướng thời trang', 'assets/images/clother.png'),
-              Category('Trending', 'assets/images/heart.png'),
-            ]),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget items() => Container(
-      width: double.infinity,
-      margin: const EdgeInsets.fromLTRB(5, 0, 5, 5),
-      child: Card(
-        child: Column(
-          children: [
-            SizedBox(
-              width: double.infinity,
-              child: VerticalProduct(products: [
-                Product(5990000, 13, 'assets/images/image1.jpg'),
-                Product(809000, 37, 'assets/images/image2.jpg'),
-                Product(114000, 43, 'assets/images/image3.png'),
-                Product(225000, 4, 'assets/images/image4.png'),
-                Product(428000, 23, 'assets/images/image5.jpg'),
-                Product(89000, 50, 'assets/images/image6.jpg'),
-                Product(990000, 49, 'assets/images/image7.png'),
-                Product(870000, 37, 'assets/images/image8.jpg'),
-                Product(140000, 51, 'assets/images/image9.jpg'),
-              ]),
-            )
-          ],
-        ),
-      ),
-    );
-
 Widget category() {
   return Container(
       width: double.infinity,
@@ -278,3 +215,67 @@ Widget category() {
         ]),
       ));
 }
+
+Widget suggest() {
+  return Container(
+    width: double.infinity,
+    height: 180,
+    margin: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+    child: Card(
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 5),
+            alignment: Alignment.centerLeft,
+            child: const Text(
+              'Danh Mục Nổi Bật',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: HorizontalCategory(category: [
+              Category('Dành cho bạn', 'assets/images/foryou.png'),
+              Category('Đi chợ Siêu Sale', 'assets/images/sale.png'),
+              Category('Deal Siêu Hot', 'assets/images/fire.png'),
+              Category('Rẻ vô đối', 'assets/images/cheap.png'),
+              Category('Hàng mới', 'assets/images/new.png'),
+              Category('Xu hướng thời trang', 'assets/images/clother.png'),
+              Category('Trending', 'assets/images/heart.png'),
+            ]),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+Widget items() => Container(
+      width: double.infinity,
+      margin: const EdgeInsets.fromLTRB(5, 0, 5, 5),
+      child: Card(
+        child: Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: VerticalProduct(products: [
+                Product.Items('IPhone 11 Pro-Max', 3.0, 1111,590000, 13, 'assets/images/image1.jpg'),
+                Product.Items('Kem đánh răng + sữa rửa mặt', 3.5, 1111, 809000, 37, 'assets/images/image2.jpg'),
+                Product.Items('Yên xe đạp nhật (Chính hãng)', 4.5, 1111, 114000, 43, 'assets/images/image3.png'),
+                Product.Items('Ốp điện thoại', 2.3, 1111, 225000, 4, 'assets/images/image4.png'),
+                Product.Items('Dầu gội đầu sunlife', 3.6, 1111, 428000, 23, 'assets/images/image5.jpg'),
+                Product.Items('Siri (Mỹ)', 1.4, 1111, 89000, 50, 'assets/images/image6.jpg'),
+                Product.Items('Máy hút bụi đa năng', 5.0, 1111, 990000, 49, 'assets/images/image7.png'),
+                Product.Items('Chảo chống dính siêu bền', 4.0, 1111, 870000, 37, 'assets/images/image8.jpg'),
+                Product.Items('Xạc đa năng (Chính hãng)', 2.8, 1111, 140000, 51, 'assets/images/image9.jpg'),
+              ]),
+            )
+          ],
+        ),
+      ),
+    );
+
+

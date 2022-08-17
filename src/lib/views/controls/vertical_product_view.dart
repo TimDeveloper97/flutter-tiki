@@ -1,4 +1,5 @@
 import 'package:androidstudio/views/controls/percent_indicator_view.dart';
+import 'package:androidstudio/views/controls/star_rating_view.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -31,7 +32,7 @@ class _verticalProduct extends State<VerticalProduct> {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.4),
+          childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.3),
         ),
         itemBuilder: (BuildContext context, int index) {
           return Card(
@@ -68,6 +69,35 @@ Widget cardItem(Product product) {
           fit: BoxFit.fill,
         ),
         const SizedBox(height: 10),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            product.Name,
+            maxLines: 2,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 13,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+        ),
+        const SizedBox(height: 3),
+        Row(
+          children: [
+            const SizedBox(height: 2),
+            StarRating(rating: product.Rating, onRatingChanged: (rating) => {}, color: Colors.amber, size: 13),
+            Padding(padding: const EdgeInsets.only(top: 2), child: Text(
+              ' | Đã bán ' + product.Selled.toString(),
+              maxLines: 2,
+              style: const TextStyle(
+                color: Colors.grey,
+                fontSize: 9,
+                fontWeight: FontWeight.normal,
+              ),
+            ),)
+          ],
+        ),
+        const SizedBox(height: 3),
         Row(
           children: [
             const SizedBox(height: 2),
@@ -82,8 +112,6 @@ Widget cardItem(Product product) {
             boxDiscount(product.Discount),
           ],
         ),
-        const SizedBox(height: 10),
-        const PercentIndicator(width: 180, color: Colors.red, value: 50, max: 100),
       ],
     ),
   );
@@ -104,38 +132,6 @@ Widget boxDiscount(int discount) {
         color: Colors.red,
         fontSize: 13,
         fontWeight: FontWeight.normal,
-      ),
-    ),
-  );
-}
-
-Widget recentSell(String text, Function() callback) {
-  return SizedBox(
-    height: 45,
-    child: OutlinedButton(
-      onPressed: () => callback(),
-      style: OutlinedButton.styleFrom(
-        primary: Colors.white,
-        backgroundColor: MColors.app,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        side: const BorderSide(width: 2, color: Colors.white),
-      ),
-      child: Stack(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              text = text,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          )
-        ],
       ),
     ),
   );
