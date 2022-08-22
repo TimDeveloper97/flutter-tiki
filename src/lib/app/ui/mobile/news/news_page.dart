@@ -1,13 +1,15 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
+import 'package:androidstudio/app/controller/news/news_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class NewsPage extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() => _newsPage();
-}
+class NewsPage extends GetView<NewsController>{
+  const NewsPage({Key? key}) : super(key: key);
 
-class _newsPage extends State<NewsPage> {
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(color: Colors.red,);
   }
 }

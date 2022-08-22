@@ -13,7 +13,7 @@ class _bannerView extends State<BannerView> {
   late PageController _pageController;
   int activePage = 1;
 
-  List<Widget> Indicators(imagesLength, currentIndex) {
+  List<Widget> indicators(imagesLength, currentIndex) {
     return List<Widget>.generate(imagesLength, (index) {
       return GestureDetector(
         onTap: () {
@@ -61,7 +61,7 @@ class _bannerView extends State<BannerView> {
                 return slider(widget.images, pagePosition, active);
               }),
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: Indicators(widget.images.length, activePage))
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: indicators(widget.images.length, activePage))
       ],
     );
   }

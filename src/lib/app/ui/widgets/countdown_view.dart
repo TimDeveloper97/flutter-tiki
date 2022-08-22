@@ -40,7 +40,8 @@ class _countdownTimer extends State<CountdownTimer> {
   // Step 6
   void setCountDown() {
     const reduceSecondsBy = 1;
-    setState(() {
+    if(mounted) {
+      setState(() {
       final seconds = tmpDuration.inSeconds - reduceSecondsBy;
       if (seconds < 0) {
         countdownTimer!.cancel();
@@ -48,6 +49,7 @@ class _countdownTimer extends State<CountdownTimer> {
         tmpDuration = Duration(seconds: seconds);
       }
     });
+    }
   }
 
   Widget boxNumber(number) {
@@ -68,7 +70,7 @@ class _countdownTimer extends State<CountdownTimer> {
   @override
   Widget build(BuildContext context) {
     String strDigits(int n) => n.toString().padLeft(2, '0');
-    final days = strDigits(tmpDuration.inDays);
+    // final days = strDigits(tmpDuration.inDays);
     // Step 7
     final hours = strDigits(tmpDuration.inHours);
     final minutes = strDigits(tmpDuration.inMinutes.remainder(60));

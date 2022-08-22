@@ -1,10 +1,9 @@
-import 'package:androidstudio/views/controls/percent_indicator_view.dart';
-import 'package:flutter/gestures.dart';
+import 'package:androidstudio/app/ui/widgets/percent_indicator_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../models/product.dart';
-import '../../shares/colors.dart';
-import '../../shares/configs.dart';
+import '../../data/model/product.dart';
+import '../theme/colors.dart';
+import '../theme/configs.dart';
 
 final oCcy = NumberFormat("#,##0 ₫", "en_US");
 
@@ -16,8 +15,8 @@ class HorizontalProduct extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _horizontalProduct();
 }
-class _horizontalProduct extends State<HorizontalProduct> {
 
+class _horizontalProduct extends State<HorizontalProduct> {
   @override
   void initState() {}
 
@@ -26,31 +25,35 @@ class _horizontalProduct extends State<HorizontalProduct> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(padding: const EdgeInsets.only(left: 0), child: SizedBox(
-          height: MConfigs.heightDealHot - 80,
-          child: ListView.builder(
-            itemCount: widget.products.length,
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final item = widget.products[index];
-              return Card(
-                margin: const EdgeInsets.all(2),
-                elevation: 0,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
-                semanticContainer: true,
-                clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Stack(
-                  fit: StackFit.loose,
-                  children: [
-                    Container(color: Colors.white),
-                    cardItem(item),
-                  ],
-                ),
-              );
-            },
+        Padding(
+          padding: const EdgeInsets.only(left: 0),
+          child: SizedBox(
+            height: MConfigs.heightDealHot - 80,
+            child: ListView.builder(
+              itemCount: widget.products.length,
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final item = widget.products[index];
+                return Card(
+                  margin: const EdgeInsets.all(2),
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3)),
+                  semanticContainer: true,
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  child: Stack(
+                    fit: StackFit.loose,
+                    children: [
+                      Container(color: Colors.white),
+                      cardItem(item),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
-        ),)
+        )
       ],
     );
   }
@@ -64,7 +67,7 @@ Widget cardItem(Product product) {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          product.Image,
+          product.image,
           height: 120,
           width: 170,
           fit: BoxFit.fill,
@@ -74,18 +77,19 @@ Widget cardItem(Product product) {
           children: [
             const SizedBox(height: 2),
             Text(
-              oCcy.format(int.parse(product.Total.toString())),
+              oCcy.format(int.parse(product.total.toString())),
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
               ),
             ),
-            boxDiscount(product.Discount),
+            boxDiscount(product.discount),
           ],
         ),
         const SizedBox(height: 10),
-        const PercentIndicator(width: 180, color: Colors.red, value: 50, max: 100),
+        const PercentIndicator(
+            width: 180, color: Colors.red, value: 50, max: 100),
       ],
     ),
   );

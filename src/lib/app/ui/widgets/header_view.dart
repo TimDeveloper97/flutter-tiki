@@ -1,8 +1,8 @@
-import 'package:androidstudio/shares/colors.dart';
-import 'package:androidstudio/shares/configs.dart';
+import 'package:androidstudio/app/ui/theme/colors.dart';
+import 'package:androidstudio/app/ui/theme/configs.dart';
 import 'package:flutter/material.dart';
 
-import '../../shares/styles.dart';
+import '../theme/styles.dart';
 
 late BuildContext _context;
 

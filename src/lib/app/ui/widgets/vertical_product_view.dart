@@ -1,11 +1,7 @@
-import 'package:androidstudio/views/controls/percent_indicator_view.dart';
-import 'package:androidstudio/views/controls/star_rating_view.dart';
-import 'package:flutter/gestures.dart';
+import 'package:androidstudio/app/ui/widgets/star_rating_view.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../models/product.dart';
-import '../../shares/colors.dart';
-import '../../shares/configs.dart';
+import '../../data/model/product.dart';
 
 final oCcy = NumberFormat("#,##0 ₫", "en_US");
 
@@ -32,13 +28,15 @@ class _verticalProduct extends State<VerticalProduct> {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: MediaQuery.of(context).size.width / (MediaQuery.of(context).size.height / 1.3),
+          childAspectRatio: MediaQuery.of(context).size.width /
+              (MediaQuery.of(context).size.height / 1.3),
         ),
         itemBuilder: (BuildContext context, int index) {
           return Card(
             margin: const EdgeInsets.all(2),
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
             semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
             child: Stack(
@@ -63,7 +61,7 @@ Widget cardItem(Product product) {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          product.Image,
+          product.image,
           height: 120,
           width: 170,
           fit: BoxFit.fill,
@@ -72,7 +70,7 @@ Widget cardItem(Product product) {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            product.Name,
+            product.name,
             maxLines: 2,
             style: const TextStyle(
               color: Colors.black,
@@ -85,16 +83,23 @@ Widget cardItem(Product product) {
         Row(
           children: [
             const SizedBox(height: 2),
-            StarRating(rating: product.Rating, onRatingChanged: (rating) => {}, color: Colors.amber, size: 13),
-            Padding(padding: const EdgeInsets.only(top: 2), child: Text(
-              ' | Đã bán ' + product.Selled.toString(),
-              maxLines: 2,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 9,
-                fontWeight: FontWeight.normal,
+            StarRating(
+                rating: product.rating,
+                onRatingChanged: (rating) => {},
+                color: Colors.amber,
+                size: 13),
+            Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                ' | Đã bán ' + product.selled.toString(),
+                maxLines: 2,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontSize: 9,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
-            ),)
+            )
           ],
         ),
         const SizedBox(height: 3),
@@ -102,14 +107,14 @@ Widget cardItem(Product product) {
           children: [
             const SizedBox(height: 2),
             Text(
-              oCcy.format(int.parse(product.Total.toString())),
+              oCcy.format(int.parse(product.total.toString())),
               style: const TextStyle(
                 color: Colors.red,
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
               ),
             ),
-            boxDiscount(product.Discount),
+            boxDiscount(product.discount),
           ],
         ),
       ],

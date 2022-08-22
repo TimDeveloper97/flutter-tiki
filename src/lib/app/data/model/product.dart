@@ -1,20 +1,20 @@
 import 'dart:core';
 
 class Product {
-  late String Name;
-  late String Description;
-  String? Detail;
-  late double Price;
-  late double Total;
-  late double Rating;
-  late int Discount;
-  late int Available;
-  late String Image;
-  late int Selled;
-  late String Distributor;
+  late String name;
+  late String description;
+  String? detail;
+  late double price;
+  late double total;
+  late double rating;
+  late int discount;
+  late int available;
+  late String image;
+  late int selled;
+  late String distributor;
 
-  Product.Items(this.Name, this.Rating, this.Selled, this.Total, this.Discount, this.Image);
+  Product.init(this.name, this.rating, this.selled, this.total, this.discount,
+      this.image);
 
-  Product(this.Total, this.Discount, this.Image);
-  
+  Product(this.total, this.discount, this.image);
 }

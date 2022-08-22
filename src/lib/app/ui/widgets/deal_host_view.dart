@@ -1,9 +1,8 @@
-import 'package:androidstudio/models/product.dart';
-import 'package:androidstudio/views/controls/countdown_view.dart';
-import 'package:androidstudio/views/controls/horizontal_product_view.dart';
+import 'package:androidstudio/app/ui/widgets/countdown_view.dart';
+import 'package:androidstudio/app/ui/widgets/horizontal_product_view.dart';
 import 'package:flutter/material.dart';
-
-import '../../shares/configs.dart';
+import '../../data/model/product.dart';
+import '../theme/configs.dart';
 
 const double height = 270;
 
@@ -40,10 +39,12 @@ class _dealHostView extends State<DealHostView> {
 
   changeOpacity() {
     Future.delayed(const Duration(seconds: 1), () {
-      setState(() {
+      if(mounted) {
+        setState(() {
         opacity = opacity == 0.0 ? 1.0 : 0.0;
         changeOpacity();
       });
+      }
     });
   }
 

@@ -29,6 +29,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get: ^3.2.2
+  meta: ^1.1.8
+  http: ^0.12.1
+  slimy_card: ^1.0.4
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -1,4 +1,4 @@
-import 'package:androidstudio/shares/colors.dart';
+import 'package:androidstudio/app/ui/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -34,7 +34,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Center(
             heightFactor: 0.6,
             child: FloatingActionButton(
-                backgroundColor: MColors.app, child: const Icon(Icons.local_fire_department_outlined), elevation: 0.1, onPressed: () {}),
+                backgroundColor: MColors.app, child: const Icon(Icons.local_fire_department_outlined, color: Colors.white), elevation: 0.1, onPressed: () {}),
           ),
           SizedBox(
             width: size.width,

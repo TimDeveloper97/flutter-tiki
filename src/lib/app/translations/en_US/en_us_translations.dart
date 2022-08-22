@@ -1,4 +1,4 @@
-
-final Map<String, String> enUs = {
-  'oi' : 'Hello'
+const Map<String, String> en = {
+  'hello': 'Hello',
+  'multipleLanguage' : 'Multiple language'
 };

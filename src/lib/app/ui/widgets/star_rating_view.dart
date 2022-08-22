@@ -1,4 +1,4 @@
-import 'package:androidstudio/shares/colors.dart';
+import 'package:androidstudio/app/ui/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 typedef RatingChangeCallback = void Function(double rating);

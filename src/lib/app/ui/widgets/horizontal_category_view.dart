@@ -1,6 +1,7 @@
-import 'package:androidstudio/models/Category.dart';
+import 'dart:ui';
+import 'package:androidstudio/app/data/model/category.dart';
 import 'package:flutter/material.dart';
-import '../../shares/configs.dart';
+import '../theme/configs.dart';
 
 class HorizontalCategory extends StatefulWidget {
   final List<Category> category;
@@ -66,7 +67,7 @@ Widget cardItem(Category category) {
         Container(
           padding: const EdgeInsets.all(12),
           child: Image.asset(
-            category.Image,
+            category.image,
             height: 40,
             width: 40,
             fit: BoxFit.fill,
@@ -80,7 +81,7 @@ Widget cardItem(Category category) {
         const SizedBox(height: 5),
         Flexible(
             child: Text(
-          category.Name,
+          category.name,
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 14,
