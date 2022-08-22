@@ -1,14 +1,14 @@
-import 'package:androidstudio/models/Category.dart';
-import 'package:androidstudio/shares/colors.dart';
-import 'package:androidstudio/shares/configs.dart';
+import 'package:androidstudio/app/data/model/category.dart';
+import 'package:androidstudio/app/ui/theme/colors.dart';
+import 'package:androidstudio/app/ui/theme/configs.dart';
 import 'package:androidstudio/views/controls/deal_host_view.dart';
-import 'package:androidstudio/views/controls/header_view.dart';
-import 'package:androidstudio/views/controls/horizontal_category_view.dart';
-import 'package:androidstudio/views/controls/vertical_product_view.dart';
+import 'package:androidstudio/app/ui/widgets/header_view.dart';
+import 'package:androidstudio/app/ui/widgets/horizontal_category_view.dart';
+import 'package:androidstudio/app/ui/widgets/vertical_product_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/product.dart';
-import '../controls/banner_view.dart';
+import '../../../models/product.dart';
+import '../../ui/widgets/banner_view.dart';
 
 class HomePage extends StatefulWidget {
   @override
