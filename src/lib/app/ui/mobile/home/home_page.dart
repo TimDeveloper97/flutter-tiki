@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../data/model/product.dart';
+import '../../../translations/localization_service.dart';
+import '../../theme/styles.dart';
 import '../../widgets/banner_view.dart';
 import '../../widgets/deal_host_view.dart';
 
@@ -60,6 +62,7 @@ class HomePage extends GetView<HomeController> {
               ),
               SliverList(
                 delegate: SliverChildListDelegate([
+                  // language(),
                   banner(),
                   DealHostView(),
                   category(),
@@ -71,6 +74,41 @@ class HomePage extends GetView<HomeController> {
           ),
         ));
   }
+}
+
+Widget language() {
+  String _selectedLang = LocalizationService.locale.languageCode;
+  return Container(
+      width: double.infinity,
+      height: 100,
+      child: Column(
+        children: [
+          Text(
+            'EN' + 'hello'.tr,
+            style: bodyText1,
+          ),
+          DropdownButton<String>(
+            icon: Icon(Icons.arrow_drop_down),
+            value: _selectedLang,
+            items: _buildDropdownMenuItems(),
+            onChanged: (value) {
+              // setState(() => _selectedLang = value);
+              LocalizationService.changeLocale(value.toString());
+            },
+          ),
+        ],
+      ));
+}
+
+List<DropdownMenuItem<String>> _buildDropdownMenuItems() {
+  var list = <DropdownMenuItem<String>>[];
+  LocalizationService.langs.forEach((key, value) {
+    list.add(DropdownMenuItem<String>(
+      value: key,
+      child: Text(key),
+    ));
+  });
+  return list;
 }
 
 Widget header() {
@@ -246,11 +284,11 @@ Widget items() => Container(
                 print("more item");
               },
               style: ButtonStyle(
-                  side: MaterialStateProperty.all(BorderSide(
+                  side: MaterialStateProperty.all(const BorderSide(
                       color: MColors.app,
                       width: 1.0,
                       style: BorderStyle.solid))),
-              child: Text(
+              child: const Text(
                 "Xem Thêm",
                 style: TextStyle(color: MColors.app),
               ),
